@@ -24,3 +24,17 @@ def decode_word(word)
 end
 
 # decode sentence
+def decode_sentence(sentence)
+  decoded_sentence = ''
+  words_array = sentence.split(/   /)
+  words_array.each_with_index do |word, i|
+    if i.zero?
+      decoded_sentence << decode_word(word)
+    else
+      decoded_sentence += " #{decode_word(word)}"
+    end
+  end
+  decoded_sentence
+end
+
+puts decode_sentence('      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
